@@ -19,6 +19,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.3'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	//lombok
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'

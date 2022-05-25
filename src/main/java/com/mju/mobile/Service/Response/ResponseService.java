@@ -1,6 +1,6 @@
-package com.mju.mobile.Service;
+package com.mju.mobile.Service.Response;
 
-import com.mju.mobile.Constant.Constant;
+import com.mju.mobile.Config.Constant.Constant;
 import com.mju.mobile.Model.Response.CommonResponse;
 import com.mju.mobile.Model.Response.SingleResponse;
 import org.springframework.stereotype.Service;
@@ -13,6 +13,12 @@ public class ResponseService {
         response.setData(data);
         this.setSuccessResult(response);
         return response;
+    }
+
+    public CommonResponse getSuccessfulResult() {
+        CommonResponse result = new CommonResponse();
+        this.setSuccessResult(result);
+        return result;
     }
 
     public CommonResponse getFailResponse(int code, String message) {

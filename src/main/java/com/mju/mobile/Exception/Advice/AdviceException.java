@@ -1,17 +1,15 @@
 package com.mju.mobile.Exception.Advice;
 
-import com.mju.mobile.Constant.Constant;
+import com.mju.mobile.Config.Constant.Constant;
 import com.mju.mobile.Exception.Auth.AuthNotFoundException;
 import com.mju.mobile.Model.Response.CommonResponse;
-import com.mju.mobile.Service.ResponseService;
+import com.mju.mobile.Service.Response.ResponseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import javax.servlet.annotation.HttpConstraint;
 
 @Slf4j
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.mju.mobile.Constant;
+package com.mju.mobile.Config.Constant;
 
 public class Constant {
     public class ConstantResponseSrvice {

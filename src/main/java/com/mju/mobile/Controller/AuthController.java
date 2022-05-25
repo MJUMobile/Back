@@ -5,7 +5,7 @@ import com.mju.mobile.Model.Auth.Auth;
 import com.mju.mobile.Model.Response.CommonResponse;
 import com.mju.mobile.Repository.AuthRepository;
 import com.mju.mobile.Request.Auth.LoginRequest;
-import com.mju.mobile.Service.ResponseService;
+import com.mju.mobile.Service.Response.ResponseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
