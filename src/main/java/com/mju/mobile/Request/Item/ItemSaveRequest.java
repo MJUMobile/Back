@@ -1,10 +1,12 @@
 package com.mju.mobile.Request.Item;
 
 import com.mju.mobile.Model.Item.Item;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Data
 public class ItemSaveRequest {
     private int id;
