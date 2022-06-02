@@ -5,17 +5,19 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 public class ItemSaveRequest {
-    private int id;
     private String ownerId;
+    private String title;
+    private String content;
 
     public Item toEntity() {
         Item item = new Item();
-        item.setId(this.id);
         item.setOwnerId(this.ownerId);
+        item.setTitle(this.title);
+        item.setContent(this.content);
+        item.setViews(0);
+        item.setLikes(0);
         return item;
     }
 }

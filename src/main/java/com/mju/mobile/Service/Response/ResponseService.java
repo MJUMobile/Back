@@ -2,8 +2,11 @@ package com.mju.mobile.Service.Response;
 
 import com.mju.mobile.Config.Constant.Constant;
 import com.mju.mobile.Model.Response.CommonResponse;
+import com.mju.mobile.Model.Response.ListResponse;
 import com.mju.mobile.Model.Response.SingleResponse;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ResponseService {
@@ -13,6 +16,13 @@ public class ResponseService {
         response.setData(data);
         this.setSuccessResult(response);
         return response;
+    }
+
+    public <T> ListResponse<T> listResponse(List<T> list) {
+        ListResponse<T> result = new ListResponse<T>();
+        result.setList(list);
+        this.setSuccessResult(result);
+        return result;
     }
 
     public CommonResponse getSuccessfulResult() {

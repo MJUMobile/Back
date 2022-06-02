@@ -1,9 +1,10 @@
-package com.mju.mobile.Controller;
+package com.mju.mobile.Config.Controller;
 
-import com.mju.mobile.Exception.Auth.AuthNotFoundException;
-import com.mju.mobile.Model.Auth.Auth;
+import com.mju.mobile.Exception.Auth.ClientNotFoundException;
+import com.mju.mobile.Exception.Auth.WrongPasswordException;
+import com.mju.mobile.Model.Client.Client;
 import com.mju.mobile.Model.Response.CommonResponse;
-import com.mju.mobile.Repository.AuthRepository;
+import com.mju.mobile.Repository.ClientRepository;
 import com.mju.mobile.Request.Auth.LoginRequest;
 import com.mju.mobile.Service.Response.ResponseService;
 import lombok.RequiredArgsConstructor;
@@ -14,16 +15,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final AuthRepository authRepository;
+    private final ClientRepository authRepository;
     private final ResponseService responseService;
 
     @PostMapping("/login")
     public CommonResponse login(@RequestBody LoginRequest loginRequest) {
-        Auth auth = authRepository.findById(loginRequest.getId()).orElseThrow(AuthNotFoundException::new);
+        Client auth = authRepository.findById(loginRequest.getId()).orElseThrow(ClientNotFoundException::new);
+        CommonResponse response = this.verifyPassword(auth, loginRequest);
+        return response;
+    }
+
+    private CommonResponse verifyPassword(Client auth, LoginRequest loginRequest) {
         if(auth.getPassword().matches(loginRequest.getPassword())) {
             return responseService.singleResponse("success");
         } else {
-            throw new RuntimeException();
+            throw new WrongPasswordException();
         }
     }
 }
